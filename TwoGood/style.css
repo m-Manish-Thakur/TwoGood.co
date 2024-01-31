@@ -1,0 +1,264 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins";
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+#header {
+  width: 100%;
+  padding: 25px;
+  height: 120px;
+  position: fixed;
+  z-index: 50;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+#nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+#nav #links a {
+  text-decoration: none;
+  font-size: 14px;
+  color: #000;
+  padding: 0 15px;
+}
+#nav #icons {
+  background-color: rgb(0, 0, 0);
+  border-radius: 30px;
+  padding: 8px 30px;
+  display: flex;
+  align-items: center;
+  color: aliceblue;
+  gap: 40px;
+  padding-right: 25px;
+}
+#nav #icons i {
+  cursor: pointer;
+}
+
+#openheader {
+  width: 0%;
+  height: 0%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 50;
+  background-color: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom-left-radius: 100%;
+}
+#close {
+  position: absolute;
+  top: 35px;
+  right: 35px;
+  font-size: 40px;
+  color: aliceblue;
+  cursor: pointer;
+}
+#cursor {
+  height: 150px;
+  width: 150px;
+  background-color: rgba(239, 199, 139, 0.658);
+  border-radius: 50%;
+  position: fixed;
+  transform: translate(-50%, -50%) scale(0);
+  z-index: 9;
+}
+#page1 {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 12vw 10px 0 10px;
+}
+#page1 h1 {
+  font-family: futura;
+  font-weight: 900;
+  font-size: 15.4vw;
+  line-height: 15.7vw;
+  letter-spacing: -5px;
+}
+#page1 #video {
+  height: 100vh;
+  width: 100%;
+  margin-top: 1vw;
+  text-align: center;
+}
+#video video {
+  width: 95%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+}
+#video #play {
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  letter-spacing: 0.5px;
+  font-family: futura;
+  position: fixed;
+  border-radius: 50%;
+  text-transform: uppercase;
+  opacity: 0;
+  scale: 0;
+}
+
+@media screen and (max-width: 700px) {
+  #page1 {
+    padding: 150px 10px 0 10px;
+  }
+  #page1 h1 {
+    text-align: center;
+  }
+  #page1 #video {
+    height: 50vh;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #video #play {
+    position: absolute;
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+/* ######################  PAGE 2   ############################# */
+
+h2 {
+  border-bottom: 1px solid #000;
+  margin: 10px 2.5vw;
+  font-size: 20px;
+  margin-top: 50px;
+}
+#page2 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 10px;
+}
+#page2 .elem {
+  width: 30%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+#page2 .elem .btns {
+  width: 65%;
+  height: 50px;
+  background-color: palegoldenrod;
+  border-radius: 50px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+#page2 .elem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  scale: 1.15;
+}
+
+@media screen and (max-width: 700px) {
+  #page2 {
+    width: 100%;
+    height: 1400px;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0vw 10px;
+  }
+  #page2 .elem {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 5px;
+  }
+  #page2 .elem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    scale: 1.5;
+  }
+}
+/* ######################  ABOUT  ################## */
+
+#about {
+  width: 100%;
+  min-height: 40vh;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 10px 2vw;
+  margin-top: 20px;
+}
+#about h1 {
+  font-weight: 900;
+  font-family: futura;
+  font-size: 3.7vw;
+  line-height: 4vw;
+}
+#about p {
+  width: 430px;
+  font-size: 14.5px;
+  padding-right: 50px;
+  line-height: 25px;
+  letter-spacing: 0.5px;
+}
+#about p button {
+  padding-bottom: 5px;
+  border: none;
+  border-bottom: 1px solid rgb(27, 26, 26);
+}
+/* #######################  PAGE 3  ################## */
+
+#page3 {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 10px;
+  padding: 0 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  background-color: rgb(247, 247, 247);
+}
+
+#page3 .child {
+  height: 100%;
+  width: 40%;
+}
+#page3 .child img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
