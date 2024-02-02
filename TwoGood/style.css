@@ -49,15 +49,12 @@ body {
   width: 0%;
   height: 0%;
   position: fixed;
-  top: 0;
-  right: 0;
   z-index: 50;
   background-color: #000;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom-left-radius: 100%;
 }
 #close {
   position: absolute;

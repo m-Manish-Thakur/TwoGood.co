@@ -83,9 +83,6 @@ menu.onclick = () => {
   gsap.to("#openheader", {
     delay: 0.3,
     duration: 0.7,
-    height: "100%",
-    width: "100%",
-    borderBottomLeftRadius: 0,
   });
 };
 
@@ -93,8 +90,5 @@ close.onclick = () => {
   gsap.to("#openheader", {
     delay: 0.3,
     duration: 0.7,
-    height: "0%",
-    width: "0%",
-    borderBottomLeftRadius: "100%",
   });
 };
