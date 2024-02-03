@@ -48,18 +48,79 @@ tl.to("#loader", {
   yoyo: true,
 });
 
-gsap.to("#page1 h1", {
-  transform: "translateX(-100%)",
-  duration: 2,
-  delay: 0.5,
-  yoyo: true,
+gsap.to("#header h1", {
+  duration: 0.5,
+  y: -50,
+  opacity: 0,
   scrollTrigger: {
-    trigger: "#page1",
+    trigger: "#header h1",
     scroller: "#main",
-    // markers: true,
-    start: "top 0%",
-    end: "top -200%",
-    scrub: 4,
-    pin: true,
+    start: "top 5%",
+    scrub: 2,
   },
 });
+
+// ################   Page 1 Animation  ########################
+
+const cursorEffect = () => {
+  const page1 = document.querySelector("#page1");
+  const cursor = document.querySelector("#cursor");
+
+  page1.addEventListener("mousemove", (dets) => {
+    gsap.to(cursor, {
+      x: dets.x,
+      y: dets.y,
+    });
+  });
+  page1.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      scale: 1,
+    });
+  });
+
+  page1.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      scale: 0,
+    });
+  });
+};
+cursorEffect();
+
+gsap.from("#page1 h1 span", {
+  y: "100%",
+  duration: 1,
+  delay: 2.5,
+  stagger: 0.1,
+});
+
+// ################   Page 2 Animation  ########################
+
+gsap.from("#page2 .elem1 p", {
+  y: "100%",
+  duration: 0.3,
+  stagger: 0.2,
+  opacity: 0,
+  scrollTrigger: {
+    trigger: "#page2 .elem1 p",
+    scroller: "#main",
+    start: "top 60%",
+    end: "top 40%",
+    scrub: 2,
+  },
+});
+
+gsap.from("#page2 #elem2 p", {
+  y: "51px",
+  duration: 1,
+  stagger: 0.1,
+  opacity: 0,
+  scrollTrigger: {
+    trigger: "#page2 #elem2 p",
+    scroller: "#main",
+    start: "top 60%",
+    end: "top 0%",
+    scrub: 2,
+  },
+});
+
+// ##########################   Page 3   ##############################

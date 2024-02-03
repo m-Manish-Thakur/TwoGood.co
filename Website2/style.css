@@ -1,3 +1,12 @@
+@font-face {
+  font-family: main;
+  src: url(./NBInternationalProBoo.ttf);
+}
+@font-face {
+  font-family: rejouice;
+  src: url(./Rejouice-Headline.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -15,36 +24,159 @@ body {
   height: 100vh;
   position: fixed;
   top: 0;
-  background-color: gainsboro;
+  background-color: rgb(255, 95, 56);
   z-index: 50;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
 }
 #loader h1 {
   font-size: 100px;
-  font-family: futura;
+  font-family: "futura";
   font-weight: 800;
 }
-#page1 {
-  height: 100vh;
+
+#header {
   width: 100%;
-  overflow: hidden;
-  background-color: rgb(10, 10, 10);
+  position: fixed;
+  top: 0;
+  padding: 40px 3vw 15px 3vw;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+#header h1 {
+  font-family: "main";
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  color: white;
+}
+#header .menu {
+  padding: 7px 16px;
+  border: 1px solid white;
+  border-radius: 25px;
+  cursor: pointer;
+}
+#cursor {
+  position: fixed;
+  background-color: rgb(255, 95, 56);
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  height: 110px;
+  width: 110px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  font-family: "rejouice";
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+#page1 {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+#page1 video {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 #page1 h1 {
-  font-size: 22vw;
-  color: aliceblue;
-  font-family: futura;
-  font-stretch: 252%;
-  white-space: nowrap;
-  font-weight: 999;
-  letter-spacing: 2px;
+  font-size: 25vw;
+  line-height: 26vw;
+  color: white;
+  letter-spacing: 15px;
+  font-family: "rejouice";
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translatex(-50%);
+  display: flex;
 }
 
 #page2 {
-  position: relative;
-  height: 100vh;
   width: 100%;
-  background-color: rgb(22, 22, 22);
+  min-height: 100vh;
+  position: relative;
+  padding: 3vw;
+  background-color: beige;
+}
+#page2 .elem1 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 2px double rgb(211, 209, 209);
+}
+#page2 .elem1 p {
+  font-family: "main";
+  font-size: 23px;
+  line-height: 33px;
+}
+#page2 #elem2 h2 {
+  font-family: "main";
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 75px;
+  text-align: center;
+  letter-spacing: 0.4px;
+  margin-top: 40px;
+  /* -------------------------------------- */
+}
+
+#page2 #elem2 h2 span:first-child::first-letter {
+  margin-left: 54px;
+}
+
+@media screen and (max-width: 600px) {
+  #page1 h1 {
+    /* font-size: 68px; */
+    line-height: 35px;
+    color: white;
+    letter-spacing: 5px;
+    font-family: "rejouice";
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translatex(-50%);
+    display: flex;
+  }
+  #page2 {
+    padding: 25px 12px;
+  }
+  #page2 .elem1 p {
+    font-family: "main";
+    font-size: 18px;
+    line-height: 25px;
+  }
+  #page2 #elem2 h2 {
+    font-family: "main";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: left;
+    letter-spacing: 0.2px;
+    margin-top: 40px;
+    /* -------------------------------------- */
+  }
+}
+
+/* ##########################  Page 3  ################################### */
+
+#page3 {
+  width: 100%;
+  height: 100vh;
+  background-color: aliceblue;
+  position: relative;
 }

@@ -1,3 +1,24 @@
+const init = () => {
+  gsap.registerPlugin(ScrollTrigger);
+  const locoScroll = new LocomotiveScroll({
+    el: document.querySelector("#main"),
+    smooth: true,
+  });
+  locoScroll.on("scroll", ScrollTrigger.update);
+  ScrollTrigger.scrollerProxy("#main", {
+    scrollTop(value) {
+      return arguments.length ? locoScroll.scrollTo(value, 0, 0) : locoScroll.scroll.instance.scroll.y;
+    },
+    getBoundingClientRect() {
+      return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+    },
+    pinType: document.querySelector("#main").style.transform ? "transform" : "fixed",
+  });
+  ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+  ScrollTrigger.refresh();
+};
+init();
+
 const videoConAnimation = () => {
   let videoCon = document.querySelector("#video");
   let playBtn = document.querySelector("#play");
@@ -43,11 +64,7 @@ const loadingAnimation = () => {
 };
 loadingAnimation();
 
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("#main"),
-  smooth: true,
-  multiplier: 0.8,
-});
+const tl = gsap.timeline();
 
 const mouseHover = () => {
   document.addEventListener("mousemove", function (dets) {
@@ -73,22 +90,3 @@ const mouseHover = () => {
 };
 
 mouseHover();
-
-// ##############   HUMBURGER MENU   ################
-
-const menu = document.getElementById("menu");
-const close = document.getElementById("close");
-
-menu.onclick = () => {
-  gsap.to("#openheader", {
-    delay: 0.3,
-    duration: 0.7,
-  });
-};
-
-close.onclick = () => {
-  gsap.to("#openheader", {
-    delay: 0.3,
-    duration: 0.7,
-  });
-};
