@@ -33,11 +33,8 @@ const init = () => {
 // init();
 
 const lenis = new Lenis();
-
 lenis.on("scroll", (e) => {});
-
 lenis.on("scroll", ScrollTrigger.update);
-
 gsap.ticker.add((time) => {
   lenis.raf(time * 1000);
 });
@@ -48,7 +45,6 @@ const tl = gsap.timeline();
 
 const time = () => {
   var a = 0;
-
   setInterval(() => {
     a += Math.floor(Math.random() * 20);
     if (a < 100) {
@@ -85,6 +81,37 @@ gsap.to("#header h1", {
   },
 });
 
+// ################   NAvigation  Menu #######################
+
+const menuBtn = document.querySelector("#menu");
+const close = document.querySelector("#close");
+const menuCon = document.querySelector("#menu-container");
+
+menuBtn.onclick = () => {
+  gsap.to(menuCon, {
+    height: "550px",
+    padding: "40px 3vw 15px 3vw",
+    transform: "translateY(0)",
+    ease: "power3.out",
+    duration: 2,
+    delay: 0.3,
+    opacity: 1,
+    yoyo: true,
+  });
+};
+close.onclick = () => {
+  gsap.to(menuCon, {
+    height: "0",
+    padding: "0",
+    transform: "translateY(-155px)",
+    ease: "power3.out",
+    duration: 2,
+    delay: 0.3,
+    // opacity: 0,
+    yoyo: true,
+  });
+};
+
 // ################   Page 1 Animation  ########################
 
 const cursorEffect = () => {
@@ -92,6 +119,7 @@ const cursorEffect = () => {
   const cursor = document.querySelector("#cursor");
 
   page1.addEventListener("mousemove", (dets) => {
+    console.log("mmmm");
     gsap.to(cursor, {
       x: dets.x,
       y: dets.y,
