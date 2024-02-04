@@ -17,6 +17,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  /* overflow-x: hidden; */
 }
 
 #loader {
@@ -26,7 +27,7 @@ body {
   top: 0;
   background-color: rgb(255, 95, 56);
   z-index: 50;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -107,7 +108,7 @@ body {
 
 #page2 {
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   position: relative;
   padding: 3vw;
   background-color: beige;
@@ -130,13 +131,9 @@ body {
   font-size: 60px;
   line-height: 75px;
   text-align: center;
-  letter-spacing: 0.4px;
+  letter-spacing: 0.1px;
   margin-top: 40px;
   /* -------------------------------------- */
-}
-
-#page2 #elem2 h2 span:first-child::first-letter {
-  margin-left: 54px;
 }
 
 @media screen and (max-width: 600px) {
@@ -147,7 +144,7 @@ body {
     letter-spacing: 5px;
     font-family: "rejouice";
     position: absolute;
-    bottom: 25%;
+    bottom: 15%;
     left: 50%;
     transform: translatex(-50%);
     display: flex;
@@ -176,7 +173,351 @@ body {
 
 #page3 {
   width: 100%;
-  height: 100vh;
-  background-color: aliceblue;
+  min-height: 70vh;
   position: relative;
+  padding: 3vw;
+  padding-top: 15vw;
+}
+#page3 .con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#page3 h4 {
+  font-family: "main";
+  font-size: 17px;
+  line-height: 25px;
+  letter-spacing: 0.1px;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 25px;
+}
+#page3 h4 span {
+  font-size: 14px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  background-color: black;
+  color: aliceblue;
+  margin: 0 2px;
+}
+#page3 h2 {
+  font-family: "rejouice";
+  font-size: 4.3vw;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-align: center;
+}
+#page3 .heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12vw;
+}
+
+#page3 .heading p {
+  font-size: 25px;
+  font-family: "main";
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+#page3 .elements {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 25px;
+}
+
+#page3 .elements .box {
+  width: 32%;
+  height: 590px;
+  background-color: beige;
+  position: relative;
+  overflow: hidden;
+}
+
+#page3 .elements .box img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  object-fit: cover;
+  transform: scale(1.1);
+  transition: 0.3s linear;
+}
+#page3 .elements .box p {
+  position: absolute;
+  z-index: 6;
+  height: 25px;
+  object-fit: cover;
+  color: aliceblue;
+  font-family: "main";
+  font-size: 25px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+}
+
+#page3 .elements .box video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-position: center;
+  object-fit: cover;
+  z-index: 4;
+}
+
+#page3 .elements .box:hover img {
+  opacity: 0;
+}
+
+@media screen and (max-width: 600px) {
+  #page3 {
+    width: 100%;
+    min-height: 70vh;
+    position: relative;
+    padding: 3vw;
+    padding-top: 15vw;
+  }
+  #page3 h2 {
+    font-size: 7vw;
+    letter-spacing: 0.5;
+  }
+  #page3 .heading p {
+    font-size: 14px;
+    letter-spacing: 0.1px;
+  }
+  #page3 .elements {
+    flex-direction: column;
+    gap: 20px;
+  }
+  #page3 .elements .box {
+    width: 100%;
+    height: 450px;
+    background-color: beige;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+/* #############################   Page 5   ############################# */
+
+#page4 {
+  width: 100%;
+  min-height: 70vh;
+  position: relative;
+  padding: 3vw;
+  background-color: rgb(255, 255, 255);
+}
+#page4 .elem1 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 15px;
+  border-bottom: 2px double rgb(211, 209, 209);
+}
+#page4 .elem1 p {
+  font-family: "main";
+  font-size: 23px;
+  line-height: 33px;
+}
+#page4 #elem2 h2 {
+  font-family: "main";
+  font-weight: 500;
+  font-size: 60px;
+  line-height: 75px;
+  text-align: center;
+  letter-spacing: 0.1px;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 600px) {
+  #page4 {
+    padding: 25px 3vw;
+    padding-top: 50px;
+  }
+  #page4 .elem1 p {
+    font-size: 18px;
+    line-height: 25px;
+  }
+  #page4 #elem2 h2 {
+    font-size: 25px;
+    line-height: 35px;
+    text-align: left;
+    margin-top: 30px;
+  }
+}
+/* #############################   Page 5   ############################# */
+
+#page5 {
+  height: 130vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+#page5 video {
+  height: 100%;
+}
+#page5 .text {
+  position: absolute;
+  z-index: 5;
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 55%;
+  width: 35vw;
+  color: white;
+  font-family: "main";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+#page5 h3 {
+  font-size: 4.3vw;
+  font-weight: 500;
+}
+#page5 p {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+@media screen and (max-width: 600px) {
+  #page5 {
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  #page5 video {
+    height: 80%;
+  }
+  #page5 .text {
+    height: 70vw;
+    width: 70vw;
+  }
+  #page5 h3 {
+    font-size: 26px;
+    font-weight: 500;
+  }
+}
+
+/* #######################   GET IN TOUCH   ########################### */
+
+#getintouch {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  padding-bottom: 10vw;
+}
+
+#getintouch h1 {
+  font-size: 8vw;
+  font-weight: 500;
+  font-family: "rejouice";
+  letter-spacing: 1px;
+  border-bottom: 1px double rgb(87, 86, 86);
+  margin-left: 3%;
+}
+#swiperDiv {
+  width: 100%;
+  height: 370px;
+  transform: translateY(-35px);
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 25px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 23%;
+  object-fit: cover;
+}
+
+.swiper {
+  margin-left: auto;
+  margin-right: auto;
+}
+#getintouch .part3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 8vw;
+  font-family: "main";
+}
+#getintouch .part3 p {
+  font-size: 20px;
+}
+#getintouch .part3 h2 {
+  margin-top: 11px;
+  font-size: 4.1vw;
+  font-weight: 500;
+  text-decoration: underline;
+  letter-spacing: 1px;
+}
+
+@media screen and (max-width: 600px) {
+  #getintouch h1 {
+    font-size: 50px;
+    font-weight: 500;
+    font-family: "rejouice";
+    letter-spacing: 1px;
+    border-bottom: 1px double rgb(87, 86, 86);
+    margin-left: 3%;
+  }
+  #swiperDiv {
+    width: 100%;
+    height: 300px;
+    transform: translateY(0);
+  }
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 15px;
+    background-color: white;
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 80%;
+    object-fit: cover;
+  }
+  #getintouch .part3 {
+    margin-top: 50px;
+    font-family: "main";
+  }
+  #getintouch .part3 p {
+    font-size: 20px;
+  }
+  #getintouch .part3 h2 {
+    margin-top: 5px;
+    font-size: 45px;
+    font-weight: 500;
+    text-decoration: underline;
+    letter-spacing: 1px;
+  }
 }
