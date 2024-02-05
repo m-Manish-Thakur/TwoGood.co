@@ -1,5 +1,6 @@
 const init = () => {
   gsap.registerPlugin(ScrollTrigger);
+
   const locoScroll = new LocomotiveScroll({
     el: document.querySelector("#main"),
     smooth: true,
@@ -30,18 +31,7 @@ const init = () => {
 
   ScrollTrigger.refresh();
 };
-// init();
-
-const lenis = new Lenis();
-lenis.on("scroll", (e) => {});
-lenis.on("scroll", ScrollTrigger.update);
-gsap.ticker.add((time) => {
-  lenis.raf(time * 1000);
-});
-
-gsap.ticker.lagSmoothing(0);
-
-const tl = gsap.timeline();
+init();
 
 const time = () => {
   var a = 0;
@@ -56,16 +46,17 @@ const time = () => {
   }, 150);
 };
 
-tl.to("#loader h1", {
+const loaderTl = gsap.timeline();
+loaderTl.to("#loader h1", {
   delay: 0.5,
-  duration: 01,
+  duration: 1,
   onStart: time(),
 });
-
-tl.to("#loader", {
+loaderTl.to("#loader", {
   top: "-100vh",
-  delay: 0.3,
-  duration: 1,
+  delay: 0.5,
+  duration: 2,
+  ease: "power4.inOut",
   yoyo: true,
 });
 
@@ -74,43 +65,51 @@ gsap.to("#header h1", {
   y: -50,
   opacity: 0,
   scrollTrigger: {
-    trigger: "#header h1",
-    scroller: "body",
-    start: "top 5%",
+    trigger: "#header",
+    scroller: "#main",
+    start: "top -15%",
     scrub: 2,
   },
 });
 
-// ################   NAvigation  Menu #######################
+// ################   Navigation  Menu #######################
 
 const menuBtn = document.querySelector("#menu");
 const close = document.querySelector("#close");
 const menuCon = document.querySelector("#menu-container");
+const tl = gsap.timeline();
 
-menuBtn.onclick = () => {
-  gsap.to(menuCon, {
-    height: "550px",
-    padding: "40px 3vw 15px 3vw",
-    transform: "translateY(0)",
-    ease: "power3.out",
-    duration: 2,
-    delay: 0.3,
-    opacity: 1,
-    yoyo: true,
-  });
-};
-close.onclick = () => {
-  gsap.to(menuCon, {
-    height: "0",
-    padding: "0",
-    transform: "translateY(-155px)",
-    ease: "power3.out",
-    duration: 2,
-    delay: 0.3,
-    // opacity: 0,
-    yoyo: true,
-  });
-};
+tl.to(menuCon, {
+  height: "500px",
+  padding: "40px 3vw 15px 3vw",
+  borderBottomRightRadius: "0%",
+  borderBottomLeftRadius: "0%",
+  transform: "translateY(0)",
+  ease: "Power4.easeInOut",
+  duration: 1.2,
+  opacity: 1,
+  yoyo: true,
+});
+
+tl.from(
+  "#menuNav a, #menuNav button",
+  {
+    duration: 0.5,
+    opacity: 0,
+    y: 50,
+    stagger: 0.1,
+    ease: "Power3.easeOut",
+  },
+  "-=0.5"
+);
+tl.reverse();
+
+menuBtn.addEventListener("click", () => {
+  tl.reversed(!tl.reversed());
+});
+close.addEventListener("click", () => {
+  tl.reversed(!tl.reversed());
+});
 
 // ################   Page 1 Animation  ########################
 
@@ -142,7 +141,8 @@ cursorEffect();
 gsap.from("#page1 h1 span", {
   y: "100%",
   duration: 1,
-  delay: 2.5,
+  delay: 2.8,
+  ease: "Power4.easeInOut",
   stagger: 0.1,
 });
 
@@ -155,7 +155,7 @@ gsap.from("#page2 .elem1 p", {
   opacity: 0,
   scrollTrigger: {
     trigger: "#page2 .elem1 p",
-    scroller: "body",
+    scroller: "#main",
     start: "top 60%",
     end: "top 40%",
     scrub: 2,
@@ -169,7 +169,7 @@ gsap.from("#page2 #elem2 p", {
   opacity: 0,
   scrollTrigger: {
     trigger: "#page2",
-    scroller: "body",
+    scroller: "#main",
     start: "top 60%",
     end: "top 10%",
     scrub: 2,
@@ -185,7 +185,7 @@ gsap.from("#page4 .elem1 p", {
   opacity: 0,
   scrollTrigger: {
     trigger: "#page4 .elem1 p",
-    scroller: "body",
+    scroller: "#main",
     start: "top 60%",
     end: "top 40%",
     scrub: 2,
@@ -199,14 +199,12 @@ gsap.from("#page4 #elem2 p", {
   opacity: 0,
   scrollTrigger: {
     trigger: "#page4",
-    scroller: "body",
+    scroller: "#main",
     start: "top 60%",
     end: "top 10%",
     scrub: 2,
   },
 });
-
-// ##################################   Page 5  ######################
 
 // ##################################   Get In Touch   ####################
 
@@ -217,9 +215,9 @@ gsap.from("#getintouch h1", {
   yoyo: true,
   scrollTrigger: {
     trigger: "#getintouch h1",
-    scroller: "body",
+    scroller: "#main",
     start: "top 70%",
-    end: "top 35%",
+    end: "top 50%",
     scrub: 3,
   },
 });
@@ -233,5 +231,22 @@ var swiper = new Swiper(".mySwiper", {
   autoplay: {
     delay: 2500,
     disableOnInteraction: true,
+  },
+});
+
+// ########################   Footer  ##################
+
+gsap.from("#footer .first p,#footer .first h3, #footer .first button, .bottom span", {
+  y: "100px",
+  duration: 1,
+  ease: "Power4.easeInOut",
+  stagger: 0.1,
+  opacity: 0,
+  scrollTrigger: {
+    trigger: "#footer ",
+    scroller: "#main",
+    start: "top 50%",
+    end: "top 10%",
+    scrub: 3,
   },
 });

@@ -17,6 +17,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  user-select: none;
   /* overflow-x: hidden; */
 }
 
@@ -46,14 +47,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  z-index: 25;
+  z-index: 2;
 }
 #header h1 {
   font-family: "main";
   font-size: 20px;
   font-weight: 500;
   letter-spacing: 0.3px;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 #header #menu {
   padding: 7px 16px;
@@ -90,7 +91,50 @@ body {
 }
 
 #menuNav {
+  position: absolute;
+  right: 3vw;
+  top: 100px;
+  width: 555px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 }
+#menuNav a {
+  font-family: "main";
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  font-size: 50px;
+  line-height: 55px;
+}
+#menuNav a:first-child {
+  border-bottom: 2px solid #000;
+}
+#menuNav button {
+  font-family: "main";
+  font-size: 16px;
+  border: 1px solid black;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 15px 30px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  margin-top: 25px;
+}
+
+@media screen and (max-width: 600px) {
+  #menuNav {
+    position: absolute;
+    left: 3vw;
+    top: 130px;
+    width: 350px;
+  }
+  #menuNav a {
+    font-size: 38px;
+    line-height: 45px;
+  }
+}
+
+/* ########################    Cursor   ###################### */
 
 #cursor {
   position: fixed;
@@ -107,7 +151,7 @@ body {
   letter-spacing: 1px;
   font-weight: 500;
   font-family: "rejouice";
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   cursor: pointer;
 }
 
@@ -426,7 +470,7 @@ body {
     position: relative;
   }
   #page5 video {
-    height: 80%;
+    height: 100%;
   }
   #page5 .text {
     height: 70vw;
@@ -550,5 +594,75 @@ body {
     font-weight: 500;
     text-decoration: underline;
     letter-spacing: 1px;
+  }
+}
+
+/* #################################    Footer   ################################### */
+#footer {
+  width: 100%;
+  min-height: 100vh;
+  /* position: relative; */
+  padding: 3vw;
+  background-color: black;
+}
+#footer .first {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-family: "main";
+  background-color: black;
+}
+#footer .first h3 {
+  font-weight: 500;
+  font-size: 25px;
+  color: rgb(255, 255, 255);
+}
+#footer .first button {
+  color: aliceblue;
+  font-weight: 500;
+  background-color: transparent;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid white;
+  padding: 14px 25px;
+  margin-top: 25px;
+}
+#footer .first p {
+  color: aliceblue;
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 30px;
+}
+#footer .first .firstRight {
+  display: flex;
+  gap: 75px;
+}
+#footer .bottom h1 {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 21vw;
+  list-style: 25vw;
+  font-family: "rejouice";
+  letter-spacing: -25px;
+  color: white;
+}
+
+@media screen and (max-width: 660px) {
+  #footer .first {
+    display: flex;
+    flex-direction: column;
+    gap: 55px;
+  }
+  #footer .first .firstRight {
+    display: flex;
+    gap: 75px;
+  }
+
+  #footer .bottom h1 {
+    font-size: 80px;
+    letter-spacing: -7px;
+    line-height: 85px;
   }
 }
